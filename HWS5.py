@@ -3,13 +3,14 @@
 # и возводит число А в целую степень B с помощью рекурсии.
 a = int(input("Введите число: "))
 b = int(input("Введите степень: "))
-def exponentiation(x, n):
-    s = 1
-    for n in range(1, n+1):
+def exponentiation(x, n, s):
+    if n > 0:
         s *= x
+        n -= 1
         # print(s, n)
+        return exponentiation(x, n, s)
     return s
-print(exponentiation(a, b))
+print(exponentiation(a, b, 1))
 
 # Напишите рекурсивную функцию sum(a, b), возвращающую сумму двух целых неотрицательных чисел. 
 # Из всех арифметических операций допускаются только +1 и -1. Также нельзя использовать циклы.
