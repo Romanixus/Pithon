@@ -34,5 +34,4 @@ def action(input_list):
             input_list.insert(0, None)
             input_list.insert(0, None)
     print(input, '=', input_list.pop())
-    return(action(input_list))
 action(input_list)
