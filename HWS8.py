@@ -35,3 +35,7 @@ def action(input_list):
             input_list.insert(0, None)
     print(input, '=', input_list.pop())
 action(input_list)
+
+lvl4 = '(12-4)*(2/2)'
+
+print(eval(lvl4))
