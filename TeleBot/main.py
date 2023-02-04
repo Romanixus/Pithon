@@ -1,16 +1,16 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from config import token
+from commands import *
 
-async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
-async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(eval(update.message.text.split()[1]))
+app = ApplicationBuilder().token(token).build()
+print('Server start')
 
-app = ApplicationBuilder().token("").build()
-print('begin')
+app.add_handler(CommandHandler("help", help))
 app.add_handler(CommandHandler("hello", hello))
 app.add_handler(CommandHandler("calc", calc))
+app.add_handler(CommandHandler("game", game))
 
 app.run_polling()
 print('end.')
